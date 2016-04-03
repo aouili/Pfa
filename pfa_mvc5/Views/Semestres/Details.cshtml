@@ -1,0 +1,27 @@
+﻿@model pfa_mvc5.Models.Semestre
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Semestre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.matiere_nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matiere_nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.nomSemestre }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

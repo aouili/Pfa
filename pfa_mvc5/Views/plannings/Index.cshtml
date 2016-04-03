@@ -1,0 +1,48 @@
+﻿@model IEnumerable<pfa_mvc5.Models.planning>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<section class="content-header">
+    <h3>
+        liste des plannings
+    </h3>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Tableaux de bord</a></li>
+        <li>planning</li>
+        <li class="active">selectionner planning</li>
+
+    </ol>
+</section>
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+
+            <a href="/plannings/Create" class="box-title">cree un planning</a>
+
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="box box-success box-solid collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"> @Html.DisplayFor(modelItem => item.nom_planning)</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                            </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div><!-- /.box-body -->
+    </div>
+
+</section>

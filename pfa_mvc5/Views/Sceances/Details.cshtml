@@ -1,0 +1,83 @@
+﻿@model pfa_mvc5.Models.Sceance
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sceance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.planning.nom_planning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.planning.nom_planning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.professeur.prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.professeur.prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.background_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.background_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.border_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.border_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_sceance }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

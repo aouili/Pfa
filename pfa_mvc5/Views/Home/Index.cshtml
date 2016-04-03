@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">
+                BIENVENUE
+            </h1>
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="well" style="background-color:transparent ; border-color:transparent;"><br /><br /></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="small-box bg-red">
+                        <div class="inner">
+
+                            <p><b>Si vous ete un nouveaux prof</b></p>
+                            <br />
+                            <br />
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-briefcase"></i>
+                        </div>
+                        <a href="Recrutements/Create" class="small-box-footer">
+                            cliquer ici <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="small-box bg-green">
+                        <div class="inner">
+
+                            <p><b>Si vous ete deja inscrit</b></p>
+                            <br />
+                            <br />
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person"></i>
+                        </div>
+                        <p class="small-box-footer">
+                            <span style="color:white;">
+                                @Html.ActionLink("cliquer ici", "logIn", "auth",
+                  null,
+     new { @style = "color:white;" })
+                            </span> <i class="fa fa-arrow-circle-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+
+                            <p><b>Si vous ete un nouveaux etudiant</b></p>
+                            <br />
+                            <br />
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        
+                        <a href="auth/inscrire" class="small-box-footer">
+                            cliquer ici <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="well" style="background-color:transparent ; border-color:transparent;"><br /><br /></div>
+</div>

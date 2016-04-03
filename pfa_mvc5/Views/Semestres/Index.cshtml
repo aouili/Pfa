@@ -1,0 +1,40 @@
+﻿@model IEnumerable<pfa_mvc5.Models.Semestre>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomSemestre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matiere_nom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomSemestre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.matiere_nom)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.nomSemestre }) |
+            @Html.ActionLink("Details", "Details", new { id=item.nomSemestre }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.nomSemestre })
+        </td>
+    </tr>
+}
+
+</table>

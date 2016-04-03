@@ -1,0 +1,27 @@
+﻿@model pfa_mvc5.Models.classes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>classes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.groupe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.groupe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.nom_classe }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

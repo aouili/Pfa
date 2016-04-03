@@ -1,0 +1,112 @@
+﻿@model pfa_mvc5.Models.planning
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Tableaux de bord</a></li>
+        <li>planning</li>
+        <li>selectionner planning</li>
+        <li class="active">detai planning</li>
+    </ol>
+</section>
+<section class="content" >
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.classe.nom_classe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.classe.nom_classe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.semestre.nomSemestre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.semestre.nomSemestre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_planning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_planning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etat)
+        </dd>
+
+    </dl>
+    <div id="calendar"></div>
+</section>
+
+<script>
+        $(function () {
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+            var date = new Date();
+            var d = date.getDate(),
+                    m = date.getMonth(),
+                    y = date.getFullYear();
+            $('#calendar').fullCalendar({
+                defaultView: 'agendaWeek',
+                snapDuration: '00:15',
+                minTime: '07:00',
+                maxTime: '20:00',
+                lang: 'fr',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                buttonText: {
+                    today: 'aujourd\'hui',
+                    month: 'mois',
+                    week: 'semaine',
+                    day: 'jour'
+                },
+                //Random default events
+
+                editable: false,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function (date, allDay) { // this function is called when something is dropped
+
+                    // retrieve the dropped element's stored Event Object
+
+
+                }
+            });
+            //custom add event function
+
+
+
+
+            });
+        
+</script>
+
+
+
+
+
+  
+
+

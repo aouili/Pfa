@@ -1,0 +1,57 @@
+﻿@model IEnumerable<pfa_mvc5.Models.matiere>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" id="example4">
+    <thead>
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chargehoraire)
+        </th>
+        <th>Action</th>
+    </tr>
+</thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.chargehoraire)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.nom }) |
+            @Html.ActionLink("Details", "Details", new { id=item.nom }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.nom })
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+<script>
+           $(function () {
+
+               $('#example4').DataTable({
+                   "paging": true,
+                   "lengthChange": true,
+                   "searching": true,
+                   "ordering": true,
+                   "info": true,
+                   "autoWidth": true
+               });
+           });
+
+</script>

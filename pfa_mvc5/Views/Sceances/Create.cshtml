@@ -1,0 +1,276 @@
+﻿@model pfa_mvc5.Models.Sceance
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Tableaux de bord</a></li>
+        <li>planning</li>
+        <li>selectionner planning</li>
+        <li class="active">ajout sceance au planning</li>
+    </ol>
+</section>
+<section class="content">
+
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">cree une sceance</h3>
+                            </div>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="box-body">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                                        <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                                       <label>choisisser un couleur pour la sceance</label>
+                                     <ul class="fc-color-picker" id="color-chooser">
+                                            <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                                            <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                                        </ul>
+                                    </div><!-- /btn-group -->
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.titre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.titre, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.titre, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.start, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.start, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.start, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.end, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.end, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.end, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+          
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.background_color, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.background_color, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.background_color, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.border_color, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.border_color, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.border_color, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.url, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.url, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.url, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.nom_prof, "prof", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("nom_prof", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.nom_prof, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.id, "planning", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("id", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button id="add-new-event" type="submit" class="btn btn-primary btn-flat">Ajouter</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+        $(function () {
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+            function ini_events(ele) {
+                ele.each(function () {
+
+                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    };
+
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject);
+
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 1070,
+                        revert: true, // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    });
+
+                });
+
+
+
+            }
+            ini_events($('#external-events div.external-event'));
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+            var date = new Date();
+            var d = date.getDate(),
+                    m = date.getMonth(),
+                    y = date.getFullYear();
+            $('#calendar').fullCalendar({
+                defaultView: 'agendaWeek',
+                snapDuration: '00:15',
+                minTime: '07:00',
+                maxTime: '20:00',
+                lang: 'fr',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                buttonText: {
+                    today: 'aujourd\'hui',
+                    month: 'mois',
+                    week: 'semaine',
+                    day: 'jour'
+                },
+                //Random default events
+
+                editable: false,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function (date, allDay) { // this function is called when something is dropped
+
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
+
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = false;
+                    copiedEventObject.backgroundColor = $(this).css("background-color");
+                    copiedEventObject.borderColor = $(this).css("border-color");
+
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+
+                }
+            });
+            //custom add event function
+
+            /* ADDING EVENTS */
+            var currColor = "#3c8dbc"; //Red by default
+            //Color chooser button
+            var colorChooser = $("#color-chooser-btn");
+            $("#color-chooser > li > a").click(function (e) {
+                e.preventDefault();
+                //Save color
+                currColor = $(this).css("color");
+                //Add color effect to button
+                $('#add-new-event').css({ "background-color": currColor, "border-color": currColor });
+                $('#background_color').val(currColor);
+                $('#border_color').val(currColor);
+            });
+            $("#add-new-event").click(function (e) {
+                e.preventDefault();
+                //Get value and make sure it is not null
+                var val = $("#new-event").val();
+                if (val.length == 0) {
+                    return;
+                }
+                //temp debut
+                var temp = $("#temp1").val();
+                var temp1 = $.trim(temp);
+                // temp fin
+                var temp2 = $("#temp2").val();
+                var temp3 = $.trim(temp2);
+                //date
+
+
+                //Create events
+                var event = $("<div />");
+                event.css({ "background-color": currColor, "border-color": currColor, "color": "#fff" }).addClass("external-event");
+                event.html(val);
+
+                var eventObject = {
+                    id: $.trim(val),
+                    title: $.trim(val),
+                    start: temp1,
+                    end: temp3,
+                    allDay: false,
+                };
+                $('#calendar').fullCalendar('renderEvent', eventObject, true);
+                //Add draggable funtionality
+                ini_events(event);
+
+                //Remove event from text input
+                $("#new-event").val("");
+                $("#temp1").val("");
+                $("#temp2").val("");
+                
+            });
+        });
+</script>

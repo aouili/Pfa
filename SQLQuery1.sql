@@ -1,0 +1,1 @@
+﻿insert into Auth (login ,pass ,type ,rememberme) values ('nizar','aouili','chef',0)

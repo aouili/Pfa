@@ -1,0 +1,76 @@
+﻿@model IEnumerable<pfa_mvc5.Models.Sceance>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.planning.nom_planning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.professeur.prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.background_color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.border_color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.planning.nom_planning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.professeur.prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.background_color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.border_color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.url)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_sceance }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_sceance }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_sceance })
+        </td>
+    </tr>
+}
+
+</table>

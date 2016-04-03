@@ -1,0 +1,41 @@
+﻿@model pfa_mvc5.Models.Auth
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div class="register-box">
+    <div class="register-logo">
+        <b style="color:#3c8dbc;">Inscription Etudiant</b>
+    </div>
+    <div class="register-box-body">
+        <p class="login-box-msg">nouvelle Inscription</p>
+        <form action="../../index.html" method="post">
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(model =>model.login, new { @class = "form-control" ,@placeholder="votre Login"  ,@type="text"})
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(model => model.pass, new { @class = "form-control", @placeholder = "votre mot de passe", @type = "password" })
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="confirmer mot de passe">
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> j'accepte les <a href="#">termes et les conditions</a>
+                        </label>
+                    </div>
+                </div><!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">s'inscrire</button>
+                </div><!-- /.col -->
+            </div>
+        </form>
+     
+        <a href="/auth/logIn" class="text-center">deja inscrit</a>
+    </div><!-- /.form-box -->
+</div><!-- /.register-box -->

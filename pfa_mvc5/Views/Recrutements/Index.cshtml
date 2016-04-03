@@ -1,0 +1,148 @@
+﻿@model IEnumerable<pfa_mvc5.Models.Recrutement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_dep.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Recrutement
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Tableaux de bord</a></li>
+        <li class="active">Recrutement</li>
+    </ol>
+</section>
+
+
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">recrutement</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="example2" class="table  table-striped">
+                <thead>
+                    <tr>
+                        <th width="25%">
+                            nom
+                        </th>
+                        <th width="25%">
+                            etat
+                        </th>
+
+                        <th width="25%">action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.etat)
+                            </td>
+
+                            <td>
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal1">recruter</button> |
+                                <a href="@Url.Content("~/uploads/"+item.cv_path)" class="btn btn-default">voir cv</a> |
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">refuser</button>
+                            </td>
+                        </tr>
+
+                        //modal de recruter
+
+
+
+
+
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModalLabel">confirmation de recrutement</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="control-label">prof :</label>
+                                                <input type="text" disabled value="@item.nom" class="form-control" id="recipient-name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">composer votre reponse:</label>
+                                                <textarea class="form-control" id="message-text"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                        <button type="button" class="btn btn-primary">deposer recrutement</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        //modal de effaccer
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModalLabel">confirmation de refus</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+
+                                        refuser :  @Html.DisplayFor(modelItem => item.nom)  ????
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">annuler</button>
+                                        <a href="@Url.Content("/Recrutements/Delete/"+item.id)" class="btn btn-primary">oui</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    }
+
+                    </tfoot>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</section>
+<script>
+           $(function () {
+
+               $('#example2').DataTable({
+                   "paging": true,
+                   "lengthChange": true,
+                   "searching": true,
+                   "ordering": true,
+                   "info": true,
+                   "autoWidth": true
+               });
+           });
+
+</script>
